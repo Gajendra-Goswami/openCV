@@ -1,0 +1,17 @@
+import cv2
+import numpy as np
+
+img = cv2.imread('dog.jpg')
+
+#height or width ko extraxt kiya shape funnction ki help se
+h,w=img.shape[:2]
+
+#70-degree rotatin angle(max 360),.scaling factor .5
+rotation_matrix= cv2.getRotationMatrix2D((w/2,h/2),70,.5)
+
+rotated_image= cv2.warpAffine(img,rotation_matrix,(w,h))
+
+cv2.imshow('original',img)
+cv2.imshow('rotated_img',rotated_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
