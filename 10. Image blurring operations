@@ -1,0 +1,19 @@
+import cv2
+import numpy as np
+
+img=cv2.imread("dog.jpg")
+cv2.imshow("original",img)
+
+kernel_3X3= np.ones((3,3),np.float32)/9
+
+blurred=cv2.filter2D(img,-1,kernel_3X3)
+cv2.imshow("3X3_kernel",blurred)
+
+
+kernel_7X7= np.ones((7,7),np.float32)/9
+
+blurred2=cv2.filter2D(img,-1,kernel_7X7)
+cv2.imshow("7X7_kernel",blurred2)
+
+
+cv2.waitKey(0)
