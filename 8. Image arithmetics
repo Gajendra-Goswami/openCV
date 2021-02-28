@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+
+img = cv2.imread('dog.jpg')
+cv2.imshow('original',img)
+cv2.waitKey(0)
+M=np.ones(img.shape,dtype="uint8")*150
+#sari values 1 se change hoke 150 ho gai
+#ones matrix ko call krke shape function ko call kiya hai
+
+added=cv2.add(img,M)
+cv2.imshow("added",added)
+
+sub=cv2.subtract(img,M)
+cv2.imshow("sub",sub)
+
+mult=cv2.multiply(img,M)
+cv2.imshow("mult",mult)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
